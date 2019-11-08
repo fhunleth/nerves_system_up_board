@@ -1,7 +1,7 @@
 defmodule NervesSystemX8664.MixProject do
   use Mix.Project
 
-  @app :nerves_system_x86_64
+  @app :nerves_system_up_board
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
            |> String.trim()
@@ -50,7 +50,7 @@ defmodule NervesSystemX8664.MixProject do
     [
       {:nerves, "~> 1.5.0", runtime: false},
       {:nerves_system_br, "1.9.4", runtime: false},
-      {:nerves_toolchain_x86_64_unknown_linux_musl, "1.2.0", runtime: false},
+      {:nerves_toolchain_x86_64_unknown_linux_gnu, "1.2.0", runtime: false},
       {:nerves_system_linter, "~> 0.3.0", runtime: false},
       {:ex_doc, "~> 0.18", only: [:dev, :test], runtime: false}
     ]
@@ -58,7 +58,7 @@ defmodule NervesSystemX8664.MixProject do
 
   defp description do
     """
-    Nerves System - x86_64
+    Nerves System - up_board
     """
   end
 

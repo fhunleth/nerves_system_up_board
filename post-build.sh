@@ -23,12 +23,7 @@ grub-editenv $BINARIES_DIR/grubenv_b_valid set validated=1
 
 # Copy everything that's needed to build firmware images over to the
 # output directory so that it can be bundled with the system image.
-cp $NERVES_DEFCONFIG_DIR/grub.cfg $BINARIES_DIR
-
-# Remove the Buildroot-generated grub.cfg so avoid confusion.
-# We put our grub in the FAT filesystem at the beginning of the
-# disk so that it exists across firmware updates.
-rm -fr $TARGET_DIR/boot/grub/*
+cp $NERVES_DEFCONFIG_DIR/grub.cfg $BINARIES_DIR/efi-part/EFI/BOOT/grub.cfg
 
 # Create the revert script for manually switching back to the previously
 # active firmware.

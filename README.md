@@ -1,7 +1,7 @@
-# Generic x86_64 System
+# Up Board System
 
-[![CircleCI](https://circleci.com/gh/nerves-project/nerves_system_x86_64/tree/master.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_system_x86_64/tree/master)
-[![Hex version](https://img.shields.io/hexpm/v/nerves_system_x86_64.svg "Hex version")](https://hex.pm/packages/nerves_system_x86_64)
+[![CircleCI](https://circleci.com/gh/nerves-project/nerves_system_up_board/tree/master.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_system_up_board/tree/master)
+[![Hex version](https://img.shields.io/hexpm/v/nerves_system_up_board.svg "Hex version")](https://hex.pm/packages/nerves_system_up_board)
 
 This is the base Nerves System configuration for a generic x86_64 system.
 
@@ -10,7 +10,7 @@ This is the base Nerves System configuration for a generic x86_64 system.
 | CPU                  | Intel                           |
 | Memory               | 512 MB+ DRAM                    |
 | Storage              | Hard disk/SSD/etc. (/dev/sda)   |
-| Linux kernel         | 4.19                            |
+| Linux kernel         | 4.14                            |
 | IEx terminal         | Display - tty0                  |
 | Hardware I/O         | None                            |
 | Ethernet             | Yes                             |
@@ -21,7 +21,7 @@ exercise it regularly except as a base for other x86_64 projects.
 ## Using
 
 The most common way of using this Nerves System is create a project with `mix
-nerves.new` and to export `MIX_TARGET=x86_64`. See the [Getting started
+nerves.new` and to export `MIX_TARGET=up_board`. See the [Getting started
 guide](https://hexdocs.pm/nerves/getting-started.html#creating-a-new-nerves-app)
 for more information.
 
