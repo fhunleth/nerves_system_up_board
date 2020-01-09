@@ -95,3 +95,37 @@ file location by setting the environment variable
 `NERVES_PROVISIONING=/path/to/provisioning.conf`. The default provisioning.conf
 will set the `nerves_serial_number`, if you override the location to this file,
 you will be responsible for setting this yourself.
+
+## Troubleshooting
+
+### Device boots to GRUB CLI
+
+If this happens, something could be off with the `grub.cfg`. Couple things you
+should check here:
+
+1. Make sure all your UUID's match what is in your `fwup.conf`
+2. Your boot drive may be off (default uses `hd0`). Run `ls` in the grub CLI and
+   you may see something like this:
+   ```sh
+   grub> ls
+
+   (hd0) (hd1,gpt1) (hd1,gpt2) (hd1,gpt3) (hd1,gpt4) (hd2) (hd3) (hd4)
+   ```
+   If you do, you need to change which `hd` is looked at in `grub.cfg`, which
+   means copying a few configs from here into your Nerves app:
+   ```sh
+   $ cp fwup.conf /path/to/my_app/config/
+   $ cp grub.cfg /path/to/my_app/config/
+   ```
+   Change the line in your new `config/fwup.conf` to look at your custom `grub.cfg`
+   ```sh
+   file-resource grub.cfg {
+       host-path = "${NERVES_APP}/config/grub.cfg"
+   }
+   ```
+   Then change your new `config/grub.cfg` to match the `hd` needed.
+   Lastly, specify to use the new `fwup.conf` in your Nerves app `config/config.exs`
+   ```elixir
+   config :nerves, :firmware, fwup_conf: "config/fwup.conf"
+   ```
+   Rebuild your firmware and try to boot again.
