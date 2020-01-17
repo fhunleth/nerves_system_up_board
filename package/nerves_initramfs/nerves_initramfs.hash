@@ -1,2 +1,2 @@
-# From https://github.com/fhunleth/nerves_initramfs/releases
-sha256 3b6315c02526d0e8892912fe0ec58a0e5548c7a001c3d76175a93199590d0aa6  nerves_initramfs-v0.2.0.tar.gz
+# From https://github.com/nerves-project/nerves_initramfs/releases
+sha256 e4bee74c3faf92d78c269854454f6f4a0ba2f6a067299385c7ee43c67d19aad0  nerves_initramfs-v0.3.1.tar.gz

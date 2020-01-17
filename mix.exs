@@ -1,4 +1,4 @@
-defmodule NervesSystemX8664.MixProject do
+defmodule NervesSystemUPBoard.MixProject do
   use Mix.Project
 
   @app :nerves_system_up_board

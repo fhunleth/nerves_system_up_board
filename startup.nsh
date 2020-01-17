@@ -1,0 +1,1 @@
+fs0:EFI\BOOT\bzImage.efi initrd=\EFI\BOOT\nerves_initramfs console=tty1 fbcon=scrollback:1024k --nerves_initramfs=rootfs.path=PARTUUID=2f53b205-337c-4129-8826-2b2368598d6a --nerves_initramfs=uboot_env.path=DISKUUID=c8decfc3-2f19-4b05-85fc-d86d61e0d48c

@@ -3,4 +3,4 @@ config BR2_PACKAGE_NERVES_INITRAMFS
 	help
           An initramfs for early boot handling of Nerves devices
 
-	  https://github.com/fhunleth/nerves_initramfs
+	  https://github.com/nerves-project/nerves_initramfs
