@@ -79,7 +79,7 @@ defmodule NervesSystemUPBoard.MixProject do
       "CHANGELOG.md",
       "fwup-revert.conf",
       "fwup.conf",
-      "grub.cfg",
+      "nerves_initramfs.conf",
       "LICENSE",
       "linux-4.19.defconfig",
       "mix.exs",
