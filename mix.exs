@@ -73,15 +73,14 @@ defmodule NervesSystemUPBoard.MixProject do
   defp package_files do
     [
       "fwup_include",
-      "lib",
-      "priv",
+      "file-to-cpio.sh",
       "rootfs_overlay",
       "CHANGELOG.md",
       "fwup-revert.conf",
       "fwup.conf",
       "nerves_initramfs.conf",
       "LICENSE",
-      "linux-4.19.defconfig",
+      "linux",
       "mix.exs",
       "nerves_defconfig",
       "post-build.sh",
