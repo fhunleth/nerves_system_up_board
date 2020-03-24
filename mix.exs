@@ -40,7 +40,7 @@ defmodule NervesSystemUPBoard.MixProject do
     [
       type: :system,
       artifact_sites: [
-        {:github_releases, "nerves-project/#{@app}"}
+        {:github_releases, "fhunleth/#{@app}"}
       ],
       build_runner_opts: build_runner_opts(),
       platform: Nerves.System.BR,
@@ -53,6 +53,7 @@ defmodule NervesSystemUPBoard.MixProject do
 
   defp deps do
     [
+      {:jason, "~> 1.1", runtime: false},
       {:nerves, "~> 1.5.4 or ~> 1.6.0", runtime: false},
       {:nerves_system_br, "1.12.2", runtime: false},
       {:nerves_toolchain_x86_64_unknown_linux_gnu, "~> 1.3.2", runtime: false},

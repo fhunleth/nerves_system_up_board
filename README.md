@@ -1,6 +1,6 @@
 # Up Board System
 
-[![CircleCI](https://circleci.com/gh/nerves-project/nerves_system_up_board/tree/master.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_system_up_board/tree/master)
+[![CircleCI](https://circleci.com/gh/fhunleth/nerves_system_up_board/tree/master.svg?style=svg)](https://circleci.com/gh/fhunleth/nerves_system_up_board/tree/master)
 [![Hex version](https://img.shields.io/hexpm/v/nerves_system_up_board.svg "Hex version")](https://hex.pm/packages/nerves_system_up_board)
 
 This is the base Nerves System configuration for a generic x86_64 system.
@@ -30,7 +30,7 @@ repository and update as described in [Making custom
 systems](https://hexdocs.pm/nerves/systems.html#customizing-your-own-nerves-system)
 
 If you're new to Nerves, check out the
-[nerves_init_gadget](https://github.com/nerves-project/nerves_init_gadget)
+[nerves_pack](https://github.com/nerves-project/nerves_pack)
 project for creating a starter project. It will get you started with the basics
 like bringing up networking, initializing the writable application data
 partition, and enabling ssh-based firmware updates.  It's easiest to begin by
