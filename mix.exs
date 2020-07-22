@@ -17,7 +17,12 @@ defmodule NervesSystemUPBoard.MixProject do
       package: package(),
       deps: deps(),
       aliases: [loadconfig: [&bootstrap/1]],
-      docs: [extras: ["README.md"], main: "readme"]
+      docs: [extras: ["README.md"], main: "readme"],
+      preferred_cli_env: %{
+        docs: :docs,
+        "hex.build": :docs,
+        "hex.publish": :docs
+      }
     ]
   end
 
@@ -52,7 +57,7 @@ defmodule NervesSystemUPBoard.MixProject do
       {:nerves_system_br, "1.12.2", runtime: false},
       {:nerves_toolchain_x86_64_unknown_linux_gnu, "~> 1.3.2", runtime: false},
       {:nerves_system_linter, "~> 0.4", runtime: false},
-      {:ex_doc, "~> 0.18", only: [:dev, :test], runtime: false}
+      {:ex_doc, "~> 0.22", only: :docs, runtime: false}
     ]
   end
 
