@@ -80,7 +80,6 @@ defmodule NervesSystemUPBoard.MixProject do
   defp package_files do
     [
       "fwup_include",
-      "file-to-cpio.sh",
       "rootfs_overlay",
       "CHANGELOG.md",
       "fwup-revert.conf",
