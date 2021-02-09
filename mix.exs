@@ -3,6 +3,7 @@ defmodule NervesSystemUPBoard.MixProject do
 
   @github_organization "fhunleth"
   @app :nerves_system_up_board
+  @source_url "https://github.com/#{@github_organization}/#{@app}"
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
            |> String.trim()
@@ -18,7 +19,7 @@ defmodule NervesSystemUPBoard.MixProject do
       package: package(),
       deps: deps(),
       aliases: [loadconfig: [&bootstrap/1]],
-      docs: [extras: ["README.md"], main: "readme"],
+      docs: docs(),
       preferred_cli_env: %{
         docs: :docs,
         "hex.build": :docs,
@@ -69,11 +70,21 @@ defmodule NervesSystemUPBoard.MixProject do
     """
   end
 
+  defp docs do
+    [
+      extras: ["README.md", "CHANGELOG.md"],
+      main: "readme",
+      source_ref: "v#{@version}",
+      source_url: @source_url,
+      skip_undefined_reference_warnings_on: ["CHANGELOG.md"]
+    ]
+  end
+
   defp package do
     [
       files: package_files(),
       licenses: ["Apache 2.0"],
-      links: %{"GitHub" => "https://github.com/#{@github_organization}/#{@app}"}
+      links: %{"GitHub" => @source_url}
     ]
   end
 
