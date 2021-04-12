@@ -3,6 +3,7 @@ defmodule NervesSystemUPBoard.MixProject do
 
   @github_organization "fhunleth"
   @app :nerves_system_up_board
+  @source_url "https://github.com/#{@github_organization}/#{@app}"
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
            |> String.trim()
@@ -18,7 +19,7 @@ defmodule NervesSystemUPBoard.MixProject do
       package: package(),
       deps: deps(),
       aliases: [loadconfig: [&bootstrap/1]],
-      docs: [extras: ["README.md"], main: "readme"],
+      docs: docs(),
       preferred_cli_env: %{
         docs: :docs,
         "hex.build": :docs,
@@ -48,6 +49,14 @@ defmodule NervesSystemUPBoard.MixProject do
       platform_config: [
         defconfig: "nerves_defconfig"
       ],
+      # The :env key is an optional experimental feature for adding environment
+      # variables to the crosscompile environment. These are intended for
+      # llvm-based tooling that may need more precise processor information.
+      env: [
+        {"TARGET_ARCH", "x86_64"},
+        {"TARGET_OS", "linux"},
+        {"TARGET_ABI", "gnu"}
+      ],
       checksum: package_files()
     ]
   end
@@ -55,8 +64,8 @@ defmodule NervesSystemUPBoard.MixProject do
   defp deps do
     [
       {:jason, "~> 1.1", runtime: false},
-      {:nerves, "~> 1.5.4 or ~> 1.6.0", runtime: false},
-      {:nerves_system_br, "1.12.4", runtime: false},
+      {:nerves, "~> 1.5.4 or ~> 1.6.0 or ~> 1.7.4", runtime: false},
+      {:nerves_system_br, "1.15.1", runtime: false},
       {:nerves_toolchain_x86_64_unknown_linux_gnu, "~> 1.3.2", runtime: false},
       {:nerves_system_linter, "~> 0.4", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.22", only: :docs, runtime: false}
@@ -69,11 +78,21 @@ defmodule NervesSystemUPBoard.MixProject do
     """
   end
 
+  defp docs do
+    [
+      extras: ["README.md", "CHANGELOG.md"],
+      main: "readme",
+      source_ref: "v#{@version}",
+      source_url: @source_url,
+      skip_undefined_reference_warnings_on: ["CHANGELOG.md"]
+    ]
+  end
+
   defp package do
     [
       files: package_files(),
       licenses: ["Apache 2.0"],
-      links: %{"GitHub" => "https://github.com/#{@github_organization}/#{@app}"}
+      links: %{"GitHub" => @source_url}
     ]
   end
 
@@ -97,10 +116,9 @@ defmodule NervesSystemUPBoard.MixProject do
   end
 
   defp build_runner_opts() do
-    if primary_site = System.get_env("BR2_PRIMARY_SITE") do
-      [make_args: ["BR2_PRIMARY_SITE=#{primary_site}"]]
-    else
-      []
+    case System.get_env("BR2_PRIMARY_SITE") do
+      nil -> []
+      primary_site -> [make_args: ["BR2_PRIMARY_SITE=#{primary_site}"]]
     end
   end
 
