@@ -1,6 +1,6 @@
 # Up Board System
 
-[![CircleCI](https://circleci.com/gh/fhunleth/nerves_system_up_board/tree/master.svg?style=svg)](https://circleci.com/gh/fhunleth/nerves_system_up_board/tree/master)
+[![CircleCI](https://circleci.com/gh/fhunleth/nerves_system_up_board/tree/main.svg?style=svg)](https://circleci.com/gh/fhunleth/nerves_system_up_board/tree/main)
 [![Hex version](https://img.shields.io/hexpm/v/nerves_system_up_board.svg "Hex version")](https://hex.pm/packages/nerves_system_up_board)
 
 This is the base Nerves System configuration for a generic x86_64 system.
