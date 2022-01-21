@@ -3,16 +3,16 @@
 [![CircleCI](https://circleci.com/gh/fhunleth/nerves_system_up_board/tree/main.svg?style=svg)](https://circleci.com/gh/fhunleth/nerves_system_up_board/tree/main)
 [![Hex version](https://img.shields.io/hexpm/v/nerves_system_up_board.svg "Hex version")](https://hex.pm/packages/nerves_system_up_board)
 
-This is the base Nerves System configuration for a generic x86_64 system.
+This is the base Nerves System configuration for an [UP Board](https://up-board.org/up/specifications/).
 
 | Feature              | Description                     |
 | -------------------- | ------------------------------- |
 | CPU                  | Intel                           |
 | Memory               | 512 MB+ DRAM                    |
 | Storage              | Hard disk/SSD/etc. (/dev/sda)   |
-| Linux kernel         | 4.14                            |
+| Linux kernel         | 5.10                            |
 | IEx terminal         | Display - tty0                  |
-| Hardware I/O         | None                            |
+| Hardware I/O         | None (UP board FPGA patch not included) |
 | Ethernet             | Yes                             |
 
 Please contact us about this if you're really interested in it. We don't
